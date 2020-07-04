@@ -1,7 +1,6 @@
 defmodule RedisClientTest do
   use ExUnit.Case
 
-  @tag :skip
   test "start connection and PING" do
     assert {:ok, conn} = RedisClient.start_link(host: "localhost", port: 6379)
 
