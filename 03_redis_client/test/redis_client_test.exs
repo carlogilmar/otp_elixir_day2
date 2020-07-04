@@ -7,7 +7,6 @@ defmodule RedisClientTest do
     assert RedisClient.command(conn, ["PING"]) == "PONG"
   end
 
-  @tag :skip
   test "GET + SET" do
     assert {:ok, conn} = RedisClient.start_link(host: "localhost", port: 6379)
 
