@@ -6,7 +6,11 @@ defmodule Playground.Application do
   use Application
 
   def start(_type, _args) do
-    children = []
+    children = [
+      Supervisor.child_spec({Playground.Worker, name: MyWorker1}, id: :worker1),
+      Supervisor.child_spec({Playground.Worker, name: MyWorker2}, id: :worker2),
+      Supervisor.child_spec({Playground.Worker, name: MyWorker3}, id: :worker3)
+    ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
